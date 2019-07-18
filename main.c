@@ -68,23 +68,10 @@ void main(void) {
     IO_RA2_SetHigh();
     __delay_us(10);
     while (1) {
-        IO_RA4_SetHigh();
+
         IO_RA2_SetLow();
         SPI1_Exchange8bit(0b10000111);
         SPI1_Exchange8bit(0b11110110);
-        IO_RA2_SetHigh();
-        __delay_ms(2);
-
-        IO_RA2_SetLow();
-        SPI1_Exchange8bit(0b10001000);
-        SPI1_Exchange8bit(0b00000000);
-        IO_RA2_SetHigh();
-        __delay_ms(247);
-
-        IO_RA4_SetLow();
-        IO_RA2_SetLow();
-        SPI1_Exchange8bit(0b10001000);
-        SPI1_Exchange8bit(0b10001010);
         IO_RA2_SetHigh();
         __delay_ms(2);
         
@@ -92,7 +79,20 @@ void main(void) {
         SPI1_Exchange8bit(0b10001000);
         SPI1_Exchange8bit(0b00000000);
         IO_RA2_SetHigh();
-        __delay_ms(247);
+        __delay_ms(2);
+
+        IO_RA4_SetLow();
+        IO_RA2_SetLow();
+        SPI1_Exchange8bit(0b10001000);
+        SPI1_Exchange8bit(0b00001010);
+        IO_RA2_SetHigh();
+        __delay_ms(2);
+        
+        IO_RA2_SetLow();
+        SPI1_Exchange8bit(0b10001000);
+        SPI1_Exchange8bit(0b00000000);
+        IO_RA2_SetHigh();
+        __delay_ms(98);
 
     }
 }
